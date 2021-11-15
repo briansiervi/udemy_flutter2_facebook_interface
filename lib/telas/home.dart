@@ -18,7 +18,8 @@ class _HomeState extends State<Home> {
         slivers: [
           SliverAppBar(
             backgroundColor: Colors.orange,
-            expandedHeight: 250,
+            floating: true,
+            centerTitle: false,
             title: const Text("facebook",
                 style: TextStyle(
                   color: PaletaCores.azulFacebook,
@@ -40,7 +41,7 @@ class _HomeState extends State<Home> {
             ],
           ),
           SliverToBoxAdapter(
-            child: Container(color: Colors.green, height: 1000),
+            child: Container(color: Colors.green, height: 2000),
           )
         ],
       ),
