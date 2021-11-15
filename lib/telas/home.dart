@@ -1,4 +1,6 @@
+import 'package:facebook_interface/componentes/area_criar_postagem.dart';
 import 'package:facebook_interface/componentes/botao_circulo.dart';
+import 'package:facebook_interface/dados/dados.dart';
 import 'package:facebook_interface/uteis/paleta_cores.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -17,7 +19,7 @@ class _HomeState extends State<Home> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backgroundColor: Colors.orange,
+            backgroundColor: Colors.white,
             floating: true,
             centerTitle: false,
             title: const Text("facebook",
@@ -39,6 +41,11 @@ class _HomeState extends State<Home> {
                 onPressed: () {},
               ),
             ],
+          ),
+          SliverToBoxAdapter(
+            child: AreaCriarPostagem(
+              usuario: usuarioAtual,
+            ),
           ),
           SliverToBoxAdapter(
             child: Container(color: Colors.green, height: 2000),

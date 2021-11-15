@@ -38,6 +38,9 @@ dependencies:
   #https://pub.dev/packages/line_icons
   line_icons: ^2.0.1
 
+  #https://pub.dev/packages/cached_network_image/install
+  cached_network_image: ^3.1.0+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
