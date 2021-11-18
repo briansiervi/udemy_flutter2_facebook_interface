@@ -41,7 +41,6 @@ List<Usuario> usuariosOnline = [
       urlImagem: "https://source.unsplash.com/9ChfwZzv4ys/800x600"),
 ];
 
-/*
 /* Lista de estórias */
 List<Estoria> estorias = [
   Estoria(
@@ -74,6 +73,7 @@ List<Estoria> estorias = [
       urlImagem: "https://source.unsplash.com/DOb-2jd0sbc/800x600"),
 ];
 
+/*
 /* Lista de postagens */
 List<Postagem> postagens = [
   Postagem(

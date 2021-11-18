@@ -1,4 +1,5 @@
 import 'package:facebook_interface/componentes/area_criar_postagem.dart';
+import 'package:facebook_interface/componentes/area_estoria.dart';
 import 'package:facebook_interface/componentes/botao_circulo.dart';
 import 'package:facebook_interface/dados/dados.dart';
 import 'package:facebook_interface/uteis/paleta_cores.dart';
@@ -45,6 +46,15 @@ class _HomeState extends State<Home> {
           SliverToBoxAdapter(
             child: AreaCriarPostagem(
               usuario: usuarioAtual,
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
+            sliver: SliverToBoxAdapter(
+              child: AreaEstoria(
+                usuario: usuarioAtual,
+                estorias: estorias,
+              ),
             ),
           ),
           SliverToBoxAdapter(

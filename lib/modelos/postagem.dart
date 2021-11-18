@@ -1,4 +1,4 @@
-import 'package:facebook_interface/modelos/usuario.dart';
+import 'package:facebook_interface/modelos/modelos.dart';
 
 class Postagem {
   Usuario usuario;

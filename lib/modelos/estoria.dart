@@ -1,9 +1,12 @@
-import 'package:facebook_interface/modelos/usuario.dart';
+import 'package:facebook_interface/modelos/modelos.dart';
 
 class Estoria {
   Usuario usuario;
   String urlImagem;
-  bool foiVisualizado = false;
+  bool foiVisualizado;
 
-  Estoria({required this.usuario, required this.urlImagem, foiVisualizado});
+  Estoria(
+      {required this.usuario,
+      required this.urlImagem,
+      this.foiVisualizado = false});
 }
