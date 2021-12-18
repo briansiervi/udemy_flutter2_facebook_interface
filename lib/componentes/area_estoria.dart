@@ -19,7 +19,7 @@ class AreaEstoria extends StatelessWidget {
       height: 200,
       color: Colors.white,
       child: ListView.builder(
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
           scrollDirection: Axis.horizontal,
           itemCount: estorias.length + 1,
           itemBuilder: (context, indice) {
@@ -30,7 +30,7 @@ class AreaEstoria extends StatelessWidget {
               );
 
               return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: CartaoEstoria(
                   estoria: estoriaUsuario,
                   adicionarEstoria: true,
@@ -39,7 +39,7 @@ class AreaEstoria extends StatelessWidget {
             } else {
               Estoria estoria = estorias[indice - 1];
               return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: CartaoEstoria(
                   estoria: estoria,
                 ),
