@@ -9,8 +9,7 @@ class ListaContatos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Column(
+    return Column(
       children: [
         Row(
           children: [
@@ -41,6 +40,6 @@ class ListaContatos extends StatelessWidget {
               }),
         )
       ],
-    ));
+    );
   }
 }

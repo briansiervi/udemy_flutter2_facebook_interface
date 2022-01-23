@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:facebook_interface/modelos/postagem.dart';
 import 'package:facebook_interface/uteis/paleta_cores.dart';
+import 'package:facebook_interface/uteis/responsivo.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -13,10 +14,14 @@ class CartaoPostagem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      padding: const EdgeInsets.symmetric(vertical: 8),
+    bool isDesktop = Responsivo.isDesktop(context);
+
+    return Card(
+      margin: EdgeInsets.symmetric(vertical: 8, horizontal: isDesktop ? 5 : 0),
+      elevation: isDesktop ? 1 : 0,
+      shape: isDesktop
+          ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+          : null,
       child: Column(
         children: [
           //Cabeçalho
