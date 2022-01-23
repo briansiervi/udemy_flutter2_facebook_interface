@@ -1,5 +1,6 @@
 import 'package:facebook_interface/componentes/navegacao_abas.dart';
 import 'package:facebook_interface/componentes/navegacao_abas_desktop.dart';
+import 'package:facebook_interface/dados/dados.dart';
 import 'package:facebook_interface/uteis/responsivo.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -44,7 +45,14 @@ class _PrincipalState extends State<Principal> {
       child: Scaffold(
         appBar: isDesktop
             ? PreferredSize(
-                child: NavegacaoAbasDesktop(),
+                child: NavegacaoAbasDesktop(
+                  indiceAbaSelecionada: _indiceAbaSelecionada,
+                  onTap: (indice) => setState(() {
+                    _indiceAbaSelecionada = indice;
+                  }),
+                  icones: _icones,
+                  usuario: usuarioAtual,
+                ),
                 preferredSize: Size(tamanho.width, 65))
             : null,
         body: TabBarView(
