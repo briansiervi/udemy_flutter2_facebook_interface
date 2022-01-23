@@ -1,4 +1,6 @@
 import 'package:facebook_interface/componentes/navegacao_abas.dart';
+import 'package:facebook_interface/componentes/navegacao_abas_desktop.dart';
+import 'package:facebook_interface/uteis/responsivo.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -34,20 +36,30 @@ class _PrincipalState extends State<Principal> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDesktop = Responsivo.isDesktop(context);
+    final Size tamanho = MediaQuery.of(context).size;
+
     return DefaultTabController(
       length: _icones.length,
       child: Scaffold(
+        appBar: isDesktop
+            ? PreferredSize(
+                child: NavegacaoAbasDesktop(),
+                preferredSize: Size(tamanho.width, 65))
+            : null,
         body: TabBarView(
           physics:
               const NeverScrollableScrollPhysics(), //bloqueia o "arrastar tela para o lado"
           children: _telas,
         ),
-        bottomNavigationBar: NavegacaoAbas(
-            indiceAbaSelecionada: _indiceAbaSelecionada,
-            onTap: (indice) => setState(() {
-                  _indiceAbaSelecionada = indice;
-                }),
-            icones: _icones),
+        bottomNavigationBar: isDesktop
+            ? null
+            : NavegacaoAbas(
+                indiceAbaSelecionada: _indiceAbaSelecionada,
+                onTap: (indice) => setState(() {
+                      _indiceAbaSelecionada = indice;
+                    }),
+                icones: _icones),
       ),
     );
   }
