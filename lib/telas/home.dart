@@ -2,6 +2,7 @@ import 'package:facebook_interface/componentes/area_criar_postagem.dart';
 import 'package:facebook_interface/componentes/area_estoria.dart';
 import 'package:facebook_interface/componentes/botao_circulo.dart';
 import 'package:facebook_interface/componentes/cartao_postagem.dart';
+import 'package:facebook_interface/componentes/lista_contatos.dart';
 import 'package:facebook_interface/dados/dados.dart';
 import 'package:facebook_interface/modelos/modelos.dart';
 import 'package:facebook_interface/uteis/paleta_cores.dart';
@@ -39,7 +40,7 @@ class HomeMobile extends StatelessWidget {
           backgroundColor: Colors.white,
           floating: true,
           centerTitle: false,
-          title: const Text("facebook-M",
+          title: const Text("facebook",
               style: TextStyle(
                 color: PaletaCores.azulFacebook,
                 fontWeight: FontWeight.bold,
@@ -89,28 +90,45 @@ class HomeDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverPadding(
-          padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
-          sliver: SliverToBoxAdapter(
-            child: AreaEstoria(
-              usuario: usuarioAtual,
-              estorias: estorias,
-            ),
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: AreaCriarPostagem(
-            usuario: usuarioAtual,
-          ),
-        ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate((context, indice) {
-            Postagem postagem = postagens[indice];
-            return CartaoPostagem(postagem: postagem);
-          }, childCount: postagens.length),
-        ),
+    return Row(
+      children: [
+        Flexible(flex: 2, child: Container(color: Colors.red)),
+        const Spacer(),
+        Flexible(
+            flex: 5,
+            child: CustomScrollView(
+              slivers: [
+                SliverPadding(
+                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
+                  sliver: SliverToBoxAdapter(
+                    child: AreaEstoria(
+                      usuario: usuarioAtual,
+                      estorias: estorias,
+                    ),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: AreaCriarPostagem(
+                    usuario: usuarioAtual,
+                  ),
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate((context, indice) {
+                    Postagem postagem = postagens[indice];
+                    return CartaoPostagem(postagem: postagem);
+                  }, childCount: postagens.length),
+                ),
+              ],
+            )),
+        const Spacer(),
+        Flexible(
+            flex: 2,
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: ListaContatos(
+                usuarios: usuariosOnline,
+              ),
+            )),
       ],
     );
   }
