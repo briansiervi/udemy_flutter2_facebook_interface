@@ -10,7 +10,7 @@
 import 'package:facebook_interface/modelos/modelos.dart';
 
 Usuario usuarioAtual = Usuario(
-    nome: "Jamilton Damasceno",
+    nome: "Brian Mazini Siervi",
     urlImagem: "https://source.unsplash.com/EQFtEzJGERg/800x600");
 
 /* Lista de usuários online */
